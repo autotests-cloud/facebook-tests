@@ -1,0 +1,90 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath group: 'io.qameta.allure', name: 'allure-gradle', version: '2.8.1'
+    }
+}
+
+plugins {
+    id 'java-library'
+    id 'application'
+    id 'io.qameta.allure' version '2.8.1'
+}
+
+group 'cloud.autotests'
+version '1.0'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+defaultTasks 'help'
+
+ext {
+    allureVersion = '2.13.3'
+    junitVersion = '5.6.0'
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+
+allure {
+    version = "${allureVersion}"
+    autoconfigure = true
+    aspectjweaver = true
+    useJUnit5 {
+        version = "${allureVersion}"
+    }
+}
+
+dependencies {
+    testImplementation 'org.aspectj:aspectjweaver:1.9.5'
+    testImplementation 'com.codeborne:selenide:5.11.1'
+    testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
+    testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
+    testImplementation 'io.rest-assured:rest-assured:4.1.2'
+    testImplementation 'ch.qos.logback:logback-classic:1.2.3'
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+task facebook_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'facebook'
+    }
+}
+task facebook_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'google'
+    }
+}
+
+help {
+    doFirst {
+        println ""
+        println "************************************************************************ "
+        println "***                                                                  *** "
+        println "*** Welcome to                                                       *** "
+        println "*** https://github.com/autotests-cloud/facebook-tests                *** "
+        println "***                                                                  *** "
+        println "*** Requirements for tests:                                          *** "
+        println "*** - idea (here you are)                                            *** "
+        println "*** - start jdk8 or jdk11                                            *** "
+        println "*** - install git                                                    *** "
+        println "*** - install gradle                                                 *** "
+        println "***                                                                  *** "
+        println "*** You can run tests by one of the following commands:              *** "
+        println "*** ./gradlew facebook_tests                                         *** "
+        println "*** ./gradlew google_tests                                           *** "
+        println "***                                                                  *** "
+        println "************************************************************************ "
+        println ""
+    }
+}
