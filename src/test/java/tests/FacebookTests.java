@@ -18,7 +18,7 @@ class FacebookTests extends TestBase {
     @Test
     @Description("Positive test with testid")
     void successfulLoginWithTestId() {
-        open("http://facbook.com");
+        open("http://facebook.com");
 
         $(by("data-testid", "royal_email")).setValue("qa.guru.test@gmail.com"); // Do not store private data in code!
 //        $("#email").setValue("qa.guru.test@gmail.com");
@@ -38,7 +38,7 @@ class FacebookTests extends TestBase {
     void successfulLoginWithPageObject() {
         FacebookPage facebookPage = new FacebookPage();
 
-        open("http://facbook.com");
+        open("http://facebook.com");
 
         facebookPage.typeEmail("qa.guru.test@gmail.com");
         facebookPage.typePassword("testpassword#&!");
