@@ -60,7 +60,7 @@ task facebook_tests(type: Test) {
         includeTags 'facebook'
     }
 }
-task facebook_tests(type: Test) {
+task google_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'google'
     }
