@@ -19,7 +19,6 @@ class FacebookTests extends TestBase {
     @Test
     @Description("Positive test with testid")
     void successfulLoginWithTestId() {
-
         open("http://facebook.com");
 
         $(by("data-testid", "royal_email")).setValue("devday2019.test@gmail.com"); // Do not store private data in code!
