@@ -30,7 +30,6 @@ class FacebookTests extends TestBase {
     }
 
 
-
     @Test
     @Description("Positive test with PageObject")
     void successfulLoginWithPageObject() {
