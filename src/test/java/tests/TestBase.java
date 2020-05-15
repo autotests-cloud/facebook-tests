@@ -13,7 +13,7 @@ public class TestBase {
     @BeforeAll
     public static void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
-        if (System.getProperty("selenoid") != null) Configuration.remote = System.getProperty("selenoid");
+        if (System.getProperty("selenoid") != null) Configuration.remote = "http://" + System.getProperty("selenoid") + ":4444/wd/hub/";
     }
 
     @AfterEach
