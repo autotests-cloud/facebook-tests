@@ -55,6 +55,10 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
+tasks.withType(Test) {
+    systemProperties = System.properties
+}
+
 task facebook_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'facebook'

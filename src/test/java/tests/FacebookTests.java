@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
+import static helpers.Environment.*;
 
 @Epic("QA.GURU automation course")
 @Story("Facebook tests")
@@ -18,6 +19,7 @@ import static com.codeborne.selenide.Selenide.*;
 class FacebookTests extends TestBase {
 
     @Test
+    @Disabled
     @Description("Positive test with testid")
     void successfulLoginWithTestId() {
         open("http://facebook.com");
@@ -38,13 +40,13 @@ class FacebookTests extends TestBase {
     @Test
     @Description("Negative test with PageObject, account blocked")
     void unSuccessfulLoginWithPageObject() {
-        Configuration.headless = true;
+//        Configuration.headless = true;
         FacebookPage facebookPage = new FacebookPage();
 
-        open("http://facebook.com");
+        open(url);
 
-        facebookPage.typeEmail("qa.guru.test@gmail.com");
-        facebookPage.typePassword("testpassword#&!");
+        facebookPage.typeEmail(email);
+        facebookPage.typePassword(password);
         facebookPage.clickSubmit();
 
         $(byText("Ваш аккаунт отключен")).shouldBe(visible);
