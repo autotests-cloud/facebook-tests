@@ -7,6 +7,7 @@ import org.junit.jupiter.api.*;
 import pages.FacebookPage;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -34,8 +35,8 @@ class FacebookTests extends TestBase {
     }
 
     @Test
-    @Description("Positive test with PageObject")
-    void successfulLoginWithPageObject() {
+    @Description("Negative test with PageObject, account blocked")
+    void unSuccessfulLoginWithPageObject() {
         FacebookPage facebookPage = new FacebookPage();
 
         open("http://facebook.com");
@@ -44,6 +45,7 @@ class FacebookTests extends TestBase {
         facebookPage.typePassword("testpassword#&!");
         facebookPage.clickSubmit();
 
-        facebookPage.verifyLoggedInAsUser("Qa", "Guru");
+        $(byText("Ваш аккаунт отключен")).shouldBe(visible);
+//        facebookPage.verifyLoggedInAsUser("Qa", "Guru");
     }
 }
