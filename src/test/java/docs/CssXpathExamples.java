@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import tests.TestBase;
 
 import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.*;p
+import static com.codeborne.selenide.Selenide.*;
 import static helpers.Environment.email;
 import static helpers.Environment.url;
 
