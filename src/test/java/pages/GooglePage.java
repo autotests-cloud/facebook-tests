@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byName;
@@ -13,10 +14,12 @@ public class GooglePage {
 
 
     // Здесь реализована логика работы со страницей
+    @Step("Ввод текста в поле поиска")
     public void typeSearch(String text) {
         searchInput.val("lepra").pressEnter();
     }
 
+    @Step("Проверка, что в результатах найден искомый текст")
     public void verifySearchHasResult(String text) {
         htmlBody.shouldHave(text(text)); // тоже самое, что и $(byText(text)).shouldBe(visible);
     }

@@ -1,17 +1,16 @@
-package tests;
+package docs;
 
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.Test;
+import tests.TestBase;
 
 import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.*;p
 import static helpers.Environment.email;
 import static helpers.Environment.url;
 
-@Epic("QA.GURU automation course")
-class CssXpathExamplesTests extends TestBase {
+class CssXpathExamples {
 
-    @Test
     void cssXpathExamples() {
         open(url);
 
@@ -19,7 +18,7 @@ class CssXpathExamplesTests extends TestBase {
         $(by("data-testid", "royal_email")).setValue(email);
 
         // другие возможности сделать тоже самое
-        $("#email").setValue(email);
+        $("#email").setValue(email); // самое тру
         $(byId("email")).setValue(email);
         $("[id='email']").setValue(email);
         $("input[id='email']").setValue(email);

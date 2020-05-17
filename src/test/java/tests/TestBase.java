@@ -12,7 +12,7 @@ public class TestBase {
 
     @BeforeAll
     public static void setUp() {
-        Configuration.headless = true;
+//        Configuration.headless = true;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
     }
 
