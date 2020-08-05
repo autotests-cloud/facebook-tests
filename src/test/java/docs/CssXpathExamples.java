@@ -24,6 +24,7 @@ class CssXpathExamples {
         $("[id='email']").setValue(email);
         $("input[id='email']").setValue(email);
         $("input#email").setValue(email);
+        $(by("id", "email")).setValue(email);
         $x("//input[@id='email']").setValue(email);
         $x("//*[@id='email']").setValue(email);
 
