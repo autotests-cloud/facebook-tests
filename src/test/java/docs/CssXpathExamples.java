@@ -14,6 +14,7 @@ class CssXpathExamples {
     void cssXpathExamples() {
         open(url);
 
+        // <input type="email" class="inputtext login_form_input_box" name="email" id="email" data-testid="royal_email">
         // эталон
         $(by("data-testid", "royal_email")).setValue(email);
 
@@ -30,6 +31,8 @@ class CssXpathExamples {
         $("[name='email']").setValue(email);
         $("input[name='email']").setValue(email);
         //тоже самое с xpath
+        $x("//input[@name='email']").setValue(email);
+        $x("//*[@name='email']").setValue(email);
 
         $(byClassName("login_form_input_box")).setValue(email);
         $(".login_form_input_box").setValue(email);
